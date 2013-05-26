@@ -13,7 +13,7 @@
 ;;packages used
 (setq my-packages
       (append
-       '(el-get color-theme-solarized)
+       '(el-get color-theme-solarized jedi)
        (mapcar 'el-get-source-name el-get-sources)))
 
 (el-get 'sync my-packages)
@@ -24,7 +24,7 @@
 (require 'custom-functions)
 (require 'ui-settings)
 
-;; (require 'window-settings)
+(require 'window-settings)
 ;; (require 'cursor-settings)
 ;; (require 'text-settings)
 

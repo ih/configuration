@@ -1,6 +1,12 @@
 ;--------------------;
 ;;; User Interface ;;;
 ;--------------------;
+; use helm for finding files
+(require 'helm-files)
+(setq helm-idle-delay 0.1)
+(setq helm-input-idle-delay 0.1)
+;(setq helm-c-locate-command "locate-with-mdfind %.0s %s")
+(define-key global-map (kbd "C-x g") 'helm-for-files)
 
 ; color theme
 (load-theme 'solarized-dark 1)

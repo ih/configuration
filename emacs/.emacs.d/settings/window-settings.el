@@ -20,10 +20,11 @@
 
 ; each line of text gets one line on the screen (i.e., text will run
 ; off the left instead of wrapping around onto a new line)
-(setq-default truncate-lines 1)
+;;(setq-default truncate-lines 1)
 ; truncate lines even in partial-width windows
-(setq truncate-partial-width-windows 1)
-
+;;(setq truncate-partial-width-windows 1)
+; make text wrap in the buffer
+(visual-line-mode 1)
 ; show the current line and column numbers in the stats bar as well
 (line-number-mode 1)
 (column-number-mode 1)
