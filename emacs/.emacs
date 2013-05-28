@@ -13,7 +13,9 @@
 ;;packages used
 (setq my-packages
       (append
-       '(el-get color-theme-solarized jedi smart-operator paredit js2-mode js-comint)
+       '(el-get color-theme-solarized jedi smart-operator paredit js2-mode 
+		js-comint fill-column-indicator whitespace 
+		color-theme-zen-and-art)
        (mapcar 'el-get-source-name el-get-sources)))
 
 (el-get 'sync my-packages)
