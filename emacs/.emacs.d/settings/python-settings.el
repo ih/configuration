@@ -3,9 +3,6 @@
 ;------------------------;
 
 ; python-mode
-(setq py-install-directory (make-plugin-path "python-mode/"))
-(add-to-list 'load-path py-install-directory)
-(require 'python-mode) 
 
 ; use IPython
 (setq-default py-shell-name "/usr/local/bin/ipython")
@@ -59,7 +56,6 @@
 ; pymacs
 (defun setup-pymacs ()
   (interactive)
-  (include-plugin "pymacs")
   (autoload 'pymacs-apply "pymacs")
   (autoload 'pymacs-call "pymacs")
   (autoload 'pymacs-eval "pymacs" -1 1)
@@ -73,23 +69,23 @@
 (virtualenv-workon "default/")
 (eval-after-load 'pymacs '(load-pycomplete))
 (setup-pymacs)
-(require 'pymacs)
+
 
 ;; pyflakes flymake integration
 ;; http://stackoverflow.com/a/1257306/347942
-(when (load "flymake" t)
-  (defun flymake-pyflakes-init ()
-    (let* ((temp-file (flymake-init-create-temp-buffer-copy
-                       'flymake-create-temp-inplace))
-           (local-file (file-relative-name
-                        temp-file
-                        (file-name-directory buffer-file-name))))
-      (list "~/bin/pycheckers" (list local-file))))
-  (add-to-list 'flymake-allowed-file-name-masks
-               '("\\.py\\'" flymake-pyflakes-init)))
-(add-hook 'python-mode-hook
-	  (lambda ()
-	    (unless (eq buffer-file-name nil) (flymake-mode 1))))
+;; (when (load "flymake" t)
+;;   (defun flymake-pyflakes-init ()
+;;     (let* ((temp-file (flymake-init-create-temp-buffer-copy
+;;                        'flymake-create-temp-inplace))
+;;            (local-file (file-relative-name
+;;                         temp-file
+;;                         (file-name-directory buffer-file-name))))
+;;       (list "~/bin/pycheckers" (list local-file))))
+;;   (add-to-list 'flymake-allowed-file-name-masks
+;;                '("\\.py\\'" flymake-pyflakes-init)))
+;; (add-hook 'python-mode-hook
+;; 	  (lambda ()
+;; 	    (unless (eq buffer-file-name nil) (flymake-mode 1))))
 
 ; use autocompletion, but don't start to autocomplete after a dot
 (setq ein:complete-on-dot -1)
@@ -105,28 +101,18 @@
 ; timeout settings
 (setq ein:query-timeout 1000)
 
-; IPython notebook
-(include-plugin "emacs-ipython-notebook/lisp")
-(require 'ein)
-
 ; shortcut function to load notebooklist
 (defun load-ein () 
   (ein:notebooklist-load)
   (interactive)
   (ein:notebooklist-open))
 
-; pydoc info
-(include-plugin "pydoc-info-0.2")
-(require 'pydoc-info)
-
 ; jedi python completion
-(include-plugin "ctable")   ; required for epc
-(include-plugin "deferred") ; required for epc
-(include-plugin "epc")      ; required for jedi
-(include-plugin "jedi")
-(setq jedi:setup-keys t)
-(autoload 'jedi:setup "jedi" nil t)
 (add-hook 'python-mode-hook 'jedi:setup)
+(setq jedi:setup-keys t)
+(setq jedi:complete-on-dot t)
+
+
 
 ; Set PYTHONPATH, because we don't load .bashrc
 (setenv "PYTHONPATH"

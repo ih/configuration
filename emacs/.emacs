@@ -1,5 +1,8 @@
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 
+;;add paths to PATH that may needed when el-get is running
+(setq-default exec-path (append '("/usr/local/bin" "/usr/local/share/python") exec-path))
+
 ;;initialize el-get, which will be used to maintain packages that are installed
 (unless (require 'el-get nil 'noerror)
   (with-current-buffer
@@ -13,9 +16,10 @@
 ;;packages used
 (setq my-packages
       (append
-       '(el-get color-theme-solarized jedi smart-operator paredit js2-mode 
-		js-comint fill-column-indicator whitespace 
-		color-theme-zen-and-art)
+       '(el-get color-theme-solarized jedi smart-operator paredit js2-mode
+		js-comint fill-column-indicator whitespace
+		color-theme-zen-and-art python-mode ipython pymacs flymake ein pydoc-info
+		auto-complete ac-python)
        (mapcar 'el-get-source-name el-get-sources)))
 
 (el-get 'sync my-packages)
@@ -25,15 +29,16 @@
 ;;used for javascript repl (js-comint)
 (setq javascript-interpreter "/Users/ih/.nvm/v0.8.4/bin/node")
 
-
+;;load the various settings files
 (require 'custom-functions)
 (require 'ui-settings)
-
 (require 'window-settings)
 (require 'cursor-settings)
 (require 'text-settings)
 (require 'programming-settings)
 (require 'javascript-settings)
+(require 'python-settings)
+;(require 'auto-complete-settings)
 (ido-mode 1)
 ;; ;; MuMaMo
 ;; (load (make-plugin-path "nxhtml/autostart.el"))
@@ -47,8 +52,6 @@
 ;;            (delq 'buffer-file-name mumamo-per-buffer-local-vars))))
 
 
-;; ;; Auto complete
-;; (require 'auto-complete-settings)
 
 ;; ;; Camelcase functions
 ;; (require 'camelcase-settings)

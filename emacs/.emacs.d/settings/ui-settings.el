@@ -23,6 +23,11 @@
 ; add a new line when going to the next line
 (setq next-line-add-newlines t)
 
+;no beeping
+(setq visible-bell 1)
+
+(global-auto-complete-mode 1)
+
 ; window modifications
 ;; (global-set-key (kbd "S-C-<left>") 'shrink-window-horizontally)
 ;; (global-set-key (kbd "S-C-<right>") 'enlarge-window-horizontally)
@@ -64,4 +69,18 @@
 	 "/usr/local/bin:"
 	 "/usr/local/sbin"))
 
+
 (provide 'ui-settings)
+
+
+
+
+
+
+
+
+
+
+
+
+
