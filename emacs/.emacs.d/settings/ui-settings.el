@@ -8,6 +8,9 @@
 ;(setq helm-c-locate-command "locate-with-mdfind %.0s %s")
 (define-key global-map (kbd "C-x g") 'helm-for-files)
 
+;as backup make find-name-dired easily accessible
+(define-key global-map (kbd "C-x d") 'find-name-dired)
+
 ; color theme
 (load-theme 'solarized-dark 1)
 (setq solarized-termcolors 256)
@@ -25,8 +28,8 @@
 
 ;no beeping
 (setq visible-bell 1)
-
-(global-auto-complete-mode 1)
+;;why isn't this available when this file loads
+;(global-auto-complete-mode 1)
 
 ; window modifications
 ;; (global-set-key (kbd "S-C-<left>") 'shrink-window-horizontally)

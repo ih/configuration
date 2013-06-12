@@ -16,5 +16,7 @@
 			    (local-set-key "\C-cb" 'js-send-buffer)
 			    (local-set-key "\C-c\C-b" 'js-send-buffer-and-go)
 			    (local-set-key "\C-cl" 'js-load-file-and-go)
+			    (setq tab-width 4)
+			    (setq indent-tabs-mode t)
 			    ))
 

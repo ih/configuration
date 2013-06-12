@@ -19,7 +19,7 @@
        '(el-get color-theme-solarized jedi smart-operator paredit js2-mode
 		js-comint fill-column-indicator whitespace
 		color-theme-zen-and-art python-mode ipython pymacs flymake ein pydoc-info
-		auto-complete ac-python)
+		auto-complete ac-python tagedit blank-mode)
        (mapcar 'el-get-source-name el-get-sources)))
 
 (el-get 'sync my-packages)
@@ -38,7 +38,8 @@
 (require 'programming-settings)
 (require 'javascript-settings)
 (require 'python-settings)
-;(require 'auto-complete-settings)
+(require 'auto-complete-settings)
+(require 'html-settings)
 (ido-mode 1)
 ;; ;; MuMaMo
 ;; (load (make-plugin-path "nxhtml/autostart.el"))

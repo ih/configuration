@@ -16,7 +16,7 @@
 (scroll-bar-mode -1)
 
 ; number of characters until the fill column 
-(setq-default fill-column 100)
+(setq-default fill-column 80)
 
 ; each line of text gets one line on the screen (i.e., text will run
 ; off the left instead of wrapping around onto a new line)
