@@ -40,6 +40,7 @@
 (require 'python-settings)
 (require 'auto-complete-settings)
 (require 'html-settings)
+(require 'css-settings)
 (ido-mode 1)
 ;; ;; MuMaMo
 ;; (load (make-plugin-path "nxhtml/autostart.el"))
