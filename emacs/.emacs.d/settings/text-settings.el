@@ -18,5 +18,8 @@
 ; highlight parentheses when the cursor is next to them
 (require 'paren)
 (show-paren-mode 1)
-
+(electric-pair-mode 1)
 (provide 'text-settings)
+
+
+

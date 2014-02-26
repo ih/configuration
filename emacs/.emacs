@@ -1,9 +1,7 @@
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 
-;;add paths to PATH that may needed when el-get is running
 (setq-default exec-path (append '("/usr/local/bin" "/usr/local/share/python") exec-path))
 
-;;initialize el-get, which will be used to maintain packages that are installed
 (unless (require 'el-get nil 'noerror)
   (with-current-buffer
       (url-retrieve-synchronously
@@ -11,36 +9,47 @@
     (let (el-get-master-branch)
       (goto-char (point-max))
       (eval-print-last-sexp))))
+(add-to-list 'el-get-recipe-path "~/configuration/emcas/el-get-recipes")
 (el-get 'sync)
 
 ;;packages used
 (setq my-packages
       (append
        '(el-get color-theme-solarized jedi smart-operator paredit js2-mode
-		js-comint fill-column-indicator whitespace
-		color-theme-zen-and-art python-mode ipython pymacs flymake ein pydoc-info
-		auto-complete ac-python tagedit blank-mode)
+		js-comint fill-column-indicator whitespace 
+		color-theme-zen-and-art ipython pymacs flymake ein pydoc-info
+		auto-complete ac-python tagedit blank-mode web-mode go-mode)
        (mapcar 'el-get-source-name el-get-sources)))
 
 (el-get 'sync my-packages)
+
+;; (require 'package)
+;; (package-initialize)
+;; (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+;;                          ("marmalade" . "http://marmalade-repo.org/packages/")
+;;                          ("melpa" . "http://melpa.milkbox.net/packages/")))
+
+
 (add-to-list 'load-path "~/configuration/emacs/.emacs.d/settings")
 ;;use this for any packages not available with el-get
 (setq plugin-path "~/configuration/emacs/.emacs.d/plugins/")
 ;;used for javascript repl (js-comint)
-(setq javascript-interpreter "/Users/ih/.nvm/v0.8.4/bin/node")
+(setq javascript-interpreter "/Users/ih/.nvm/v0.10.18/bin/node")
 
 ;;load the various settings files
 (require 'custom-functions)
+(require 'programming-settings)
 (require 'ui-settings)
 (require 'window-settings)
 (require 'cursor-settings)
 (require 'text-settings)
-(require 'programming-settings)
+(require 'fill-column-indicator-settings)
 (require 'javascript-settings)
-(require 'python-settings)
+;(require 'python-settings)
 (require 'auto-complete-settings)
 (require 'html-settings)
 (require 'css-settings)
+
 (ido-mode 1)
 ;; ;; MuMaMo
 ;; (load (make-plugin-path "nxhtml/autostart.el"))
@@ -57,9 +66,6 @@
 
 ;; ;; Camelcase functions
 ;; (require 'camelcase-settings)
-
-;; ;; Fill column indicator
-;; ;(require 'fill-column-indicator-settings)
 
 ;; ;; Python mode 
 ;; (require 'python-settings)

@@ -3,7 +3,7 @@
 ;------------------------;
 
 (add-hook 'prog-mode-hook #'smart-operator-mode)
-(add-hook 'prog-mode-hook #'paredit-mode)
+;;(add-hook 'prog-mode-hook #'paredit-mode)
 (add-hook 'prog-mode-hook #'fci-mode)
 ;helps with no trailing whitespace
 ;;work-around since show-trailing-whitespace doesn't wokr with fci-mode
