@@ -1,3 +1,11 @@
+;;(add-hook 'after-init-hook '(lambda ()
+;;	  (load-file"~/configuration/emacs/load-packages.el")))
+
+(require 'package)
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(package-initialize)
+
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 
 (setq-default exec-path (append '("/usr/local/bin" "/usr/local/share/python") exec-path))

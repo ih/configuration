@@ -2,11 +2,13 @@
 ;;; User Interface ;;;
 ;--------------------;
 ; use helm for finding files
-(require 'helm-files)
-(setq helm-idle-delay 0.1)
-(setq helm-input-idle-delay 0.1)
+;(require 'helm-files)
+;(setq helm-idle-delay 0.1)
+;(setq helm-input-idle-delay 0.1)
 ;(setq helm-c-locate-command "locate-with-mdfind %.0s %s")
-(define-key global-map (kbd "C-x g") 'helm-for-files)
+(global-set-key (kbd "C-x g") 'magit-status)
+
+(define-key global-map (kbd "C-x h") 'helm-for-files)
 
 ;as backup make find-name-dired easily accessible
 (define-key global-map (kbd "C-x d") 'find-name-dired)
@@ -41,7 +43,7 @@
 (global-set-key [f4] 'goto-line)
 
 ;make it easy to rename a buffer
-(global-set-key (kbd "C-x n") 'rename-buffer)
+(global-set-key (kbd "C-x m") 'rename-buffer)
 
 ;make navigation between buffers easier
 (defun select-next-window ()
