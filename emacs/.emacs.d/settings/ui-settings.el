@@ -1,7 +1,8 @@
 ;--------------------;
 ;;; User Interface ;;;
 ;--------------------;
-; use helm for finding files
+;;;;; Install longlines via el-get for longlines-mode
+;;;; use helm for finding files
 ;(require 'helm-files)
 ;(setq helm-idle-delay 0.1)
 ;(setq helm-input-idle-delay 0.1)

@@ -25,7 +25,7 @@
       (append
        '(el-get color-theme-solarized jedi smart-operator paredit js2-mode
 		js-comint fill-column-indicator whitespace 
-		color-theme-zen-and-art ipython pymacs flymake ein pydoc-info
+		color-theme-zen-and-art pymacs flymake ein pydoc-info
 		auto-complete ac-python tagedit blank-mode web-mode go-mode)
        (mapcar 'el-get-source-name el-get-sources)))
 
